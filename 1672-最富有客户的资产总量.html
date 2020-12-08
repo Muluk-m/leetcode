@@ -24,13 +24,14 @@ var maximumWealth = function(accounts) {
            num+= item
         })
         arr.push(num)
+        // arr.push(accounts[index].reduce((a,b)=>a+b)) 改进版
     })
    return Math.max(...arr)
 };
 console.log(maximumWealth([[2,8,7],[7,1,3],[1,9,5]]));
 
 //大佬的
-var maximumWealth = function(accounts) {
+var maximumWealth2 = function(accounts) {
 return Math.max(...(accounts.map(item=> Array.isArray(item)?item.reduce((a,b)=>a+b):item)))
 };
 

@@ -1,0 +1,9 @@
+<script>
+    var str = 'asdasdsadasdasdsssaaaaaaaaasads'
+  function maxStr (str)  {
+    var obj= {}
+    str.split('').forEach(item => obj.hasOwnProperty(item) ? obj[item]++ : obj[item] = 1)
+    return Object.entries(obj).flat(infinity)
+    }
+  maxStr(str)
+</script>
