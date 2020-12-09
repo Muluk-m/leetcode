@@ -1,0 +1,11 @@
+<script>
+      var str = 'asdasdsadasdasdsssaaaaaaaaasads'
+  function maxStr (str)  {
+    var obj= {}
+    str.split('').forEach(item => obj.hasOwnProperty(item) ? obj[item]++ : obj[item] = 1)
+    var maxTime = Math.max(...Object.values(obj)) //出现最多次数
+    return  Object.keys(obj)[Object.values(obj).indexOf(maxTime)] //出现最多的字
+    }
+  console.log(maxStr(str));
+
+</script>
