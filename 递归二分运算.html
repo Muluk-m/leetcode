@@ -8,21 +8,31 @@
  * @param {*} key 想要查找的值
  */
  var arr = [33,44,55,66,77,88,22,1122,22]
-console.log(binary_search(arr,0,arr.length-1,44));
-function binary_search(arr,low,high,key){
-  if (low > high) {
-      return -1;
-  }
-  var mid = parseInt((high + low) / 2);
-  if (arr[mid] == key) {
-      return mid;
-  } else if (arr[mid] > key) {
-      high = mid - 1;
-      return binary_search(arr, low, high, key);
-  } else if (arr[mid] < key) {
-      low = mid + 1;
-      return binary_search(arr, low, high, key);
-  }
-}
+console.log(b_s(0,arr.length-1,1122,arr));
+// function binary_search(arr,low,high,key){
+//   if (low > high) {
+//       return -1;
+//   }
+//   var mid = parseInt((high + low) / 2);
+//   if (arr[mid] == key) {
+//       return mid;
+//   } else if (arr[mid] > key) {
+//       high = mid - 1;
+//       return binary_search(arr, low, high, key);
+//   } else if (arr[mid] < key) {
+//       low = mid + 1;
+//       return binary_search(arr, low, high, key);
+//   }
+// }
 
+    function b_s (low,high,num,arr) {
+        if(low>high)return -1
+        var mid = parseInt((high+low)/2)
+        if(arr[mid]===num) { return mid
+        }else if(arr[mid]<num) {
+          return b_s (mid+1,high,num,arr)
+        }else if (arr[mid]>num) {
+          return b_s (low,mid-1,num,arr)
+        }
+    }
 </script>
