@@ -1,0 +1,64 @@
+<script>
+    /**
+ * @param {string} senate
+ * @return {string}
+ */
+// var predictPartyVictory = function(senate) {
+//     let arr =  senate.split('')
+//     for(let i=0;i<arr.length;i++) {
+//         if(arr[i]==="D") { //如果是D
+//            if( !arr.includes("R") ){return "Dire"}
+//            else {
+//               arr.indexOf("R",i)!==-1?
+//                   arr.splice(arr.indexOf("R",i) ,1,"1")
+//                :
+//                    arr.splice(arr.indexOf("R") ,1,"1")
+//            }
+//         }else {  //如果是R
+//             if( !arr.includes("D") ){return "Radiant"}
+//            else {
+//                 arr.indexOf("D",i)!==-1 ?
+//                      arr.splice(arr.indexOf("D",i),1,"1")
+//               :
+//                     arr.splice(arr.indexOf("D") ,1,"1")
+//            }
+//         }
+//         console.log(arr);
+//         if(i===arr.length-1)i=0 //永久循环
+//     }
+// };
+
+
+var predictPartyVictory = function(senate) {
+    var killedR = 0, killedD = 0, livedR, livedD, a = senate.split('')
+    do {
+        livedR = livedD = 0
+        a.forEach((v, i) => {
+            if (v === 'D') {
+                if (killedD) {
+                    delete a[i]
+                    killedD--
+                } else {
+                    livedD++
+                    killedR++
+                }
+            } else {
+                if (killedR) { 
+                    delete a[i]
+                    killedR--
+                } else {
+                    livedR++
+                    killedD++ 
+                }
+            }
+        })
+    } while(livedR && livedD)
+    return livedD ? 'Dire' : 'Radiant'
+};
+
+
+
+
+var str ="RDDDRRDRDRRRDDDRRDR"
+console.log(predictPartyVictory(str));
+</script>
