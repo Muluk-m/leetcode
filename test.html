@@ -1,12 +1,20 @@
 <script>
     //题目1
-    var arr = [[10, 20], [19, 30], [28, 40]]
+    var arr = [[10, 20], [19, 30], [28, 40],[5,10]]
     function int(meetings) {
         let num = 1
-        meetings.forEach((item, index, arr) => { if (arr[index + 1]) item[1] > arr[index + 1][0] && num++ })
+        //遍历对比 按会议开始的时间排序
+        let arr = meetings.sort((a,b)=>a[0]-b[0])
+        console.log();
+        arr.forEach((item, index, arr) => { 
+            if (arr[index + 1]) item[1] > arr[index + 1][0] && num++ 
+            arr.forEach(item1=>{
+                if(item1[0]>=item[1])num--
+            })
+        })
         return num
     }
-    // console.log(int(arr));
+    console.log(int(arr));
     //题目2
     var dict = {
         frontend: [1, 2, 3],
@@ -17,31 +25,31 @@
         frontend: 2,
         backend: 1
     }
-    // function req_department(dict, staff) {
-    //     let result = []
-    //     for (key in staff) { //循环staff 的key次数,每次抽出staff[key]个人 对应的 组合
-    //         let arr = []
-    //         dict[key].forEach((item1, index1) => {
-    //             dict[key].forEach((item2, index2) => {
-    //                 if ()
-    //         })
-    //         })
-    //     }
+    function req_department(dict, staff) {
+        let result = []
+        // for (key in staff) { //循环staff 的key次数,每次抽出staff[key]个人 对应的 组合
+        //     let arr = []
+        //     dict[key].forEach((item1, index1) => {
+        //         dict[key].forEach((item2, index2) => {
+        //             if ()
+        //     })
+        //     })
+        // }
 
-    //     console.log(result);
-    //     return result
-    // }
-    // req_department(dict, staff)
-    //-----------------------------
-    function f2() {
-        for (var i = 0; i < 4; i++) {
-            var timer = setInterval(function (i, timer) {
-                console.log(i)
-                // console.log(1);
-                clearInterval(timer)
-            },10,i,timer)
-        }
+        console.log(result);
+        return result
     }
+    req_department(dict, staff)
+    //-----------------------------
+    // function f2() {
+    //     for (var i = 0; i < 4; i++) {
+    //         var timer = setInterval(function (i, timer) {
+    //             console.log(i)
+    //             // console.log(1);
+    //             clearInterval(timer)
+    //         },10,i,timer)
+    //     }
+    // }
     // f2()
     //---------------------------------
     // var m = true
