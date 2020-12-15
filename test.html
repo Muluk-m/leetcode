@@ -26,17 +26,15 @@
         backend: 1
     }
     function req_department(dict, staff) {
-        let result = []
-        // for (key in staff) { //循环staff 的key次数,每次抽出staff[key]个人 对应的 组合
-        //     let arr = []
-        //     dict[key].forEach((item1, index1) => {
-        //         dict[key].forEach((item2, index2) => {
-        //             if ()
-        //     })
-        //     })
-        // }
+        let result = {}
+        for (key in staff) { //循环staff 的key次数,每次抽出staff[key]个人 对应的 组合
+            let arr = []
+            dict[key].forEach((item1, index1) => {
+                
+            })
+        }
 
-        console.log(result);
+        console.log(Object.values(result));
         return result
     }
     req_department(dict, staff)
