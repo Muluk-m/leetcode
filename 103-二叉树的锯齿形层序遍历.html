@@ -1,0 +1,66 @@
+<script>
+// 给定一个二叉树，返回其节点值的锯齿形层序遍历。（即先从左往右，再从右往左进行下一层遍历，以此类推，层与层之间交替进行）。
+
+// 例如：
+// 给定二叉树 [3,9,20,null,null,15,7],
+
+//     3
+//    / \
+//   9  20
+//     /  \
+//    15   7
+// 返回锯齿形层序遍历如下：
+
+// [
+//   [3],
+//   [20,9],
+//   [15,7]
+// ]
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[][]}
+ */
+ var tree = [3,9,20,null,null,15,7]
+ var zigzagLevelOrder = function(root) {
+    if (!root) {
+        return [];
+    }
+
+    const ans = [];
+    const nodeQueue = [root]; //初始化一个队列
+
+    let isOrderLeft = true; // 维护一个状态值来区分是否从左开始遍历当前层级
+
+    while (nodeQueue.length) {
+        let levelList = []; // 每一个当前层的容器
+        const size = nodeQueue.length;
+        for (let i = 0; i < size; ++i) {
+            const node = nodeQueue.shift(); // 取出一个值初始化node
+            if (isOrderLeft) {     // 是否为从左开始遍历当前层级
+                levelList.push(node.val);   // 如果是把这个值推入当前层的容器levelList
+            } else {
+                levelList.unshift(node.val); // 如果从右开始遍历那就从头部存入值
+            }
+            if (node.left !== null) { // 如果左侧树没有到头,把这个节点推到末尾
+                nodeQueue.push(node.left);
+            }
+            if (node.right !== null) { // 如果右侧树没有到头,把这个节点推到末尾
+                nodeQueue.push(node.right);
+            }
+        }            
+        ans.push(levelList); // 把当前层取出的值放推到ans
+        isOrderLeft = !isOrderLeft; // 下次次反方向遍历
+    }
+
+    return ans;
+};
+
+</script>

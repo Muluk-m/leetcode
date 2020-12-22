@@ -25,17 +25,17 @@
      */
     var minCostClimbingStairs = function (cost) {
         // 初始化 0 开始 或者 1 开始
-        let prev = cost[0], cur = cost[1], i = 1
+        let prev = cost[0], cur = cost[1], i = 1 // prev 10   cur 15  
         while (++i < cost.length) {
             // 前一个和后一个消耗对比取最小
-            let tmp = cost[i] + (prev > cur ? cur : prev)// 这里等于走了一步
-            prev = cur
-            cur = tmp
+            let tmp = cost[i] + (prev > cur ? cur : prev) // 这里初始化走一步还是走两步
+            prev = cur // 15    25  25  25
+            cur = tmp  // 10  30  50  30  45
         }
         // 两种走法的最小值
         return Math.min(prev, cur)
     }
-    minCostClimbingStairs([10, 15, 20, 10, 20])
+   console.log( minCostClimbingStairs([10, 15, 20, 10, 20]));
     // 递归解法
     // const h = new Map
     // d = i => i >= cost.length ? 0 : (h.has(i) || h.set(i, cost[i] + Math.min(d(i + 1), d(i + 2))), h.get(i))
