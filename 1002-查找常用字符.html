@@ -1,0 +1,42 @@
+<script>
+//     给定仅有小写字母组成的字符串数组 A，返回列表中的每个字符串中都显示的全部字符（包括重复字符）组成的列表。例如，如果一个字符在每个字符串中出现 3 次，但不是 4 次，则需要在最终答案中包含该字符 3 次。
+
+// 你可以按任意顺序返回答案。
+
+//  
+
+// 示例 1：
+
+// 输入：["bella","label","roller"]
+// 输出：["e","l","l"]
+// 示例 2：
+
+// 输入：["cool","lock","cook"]
+// 输出：["c","o"]
+//  
+
+// 提示：
+
+// 1 <= A.length <= 100
+// 1 <= A[i].length <= 100
+// A[i][j] 是小写字母
+// 等量筛除法
+// 首先，要判断当前字符是否在单词列表中所有单词中包含；
+// 其次，就要判断每一个单词中包含的当前字符是否等量；最大的等量就是含当前字符最少的单词，所以每次用1判断后，再遍历删除每个单词的一个当前字符；
+
+/**
+ * @param {string[]} A
+ * @return {string[]}
+ */
+var commonChars = function(A) {
+    let ans = [], word = A[0], slen = word.length
+    for(let s of word){
+        if(A.every(m => m.includes(s))) {
+            A = A.map(m => m.replace(s, ''))
+            ans.push(s)
+        }
+    }
+    return ans
+};
+
+</script>
