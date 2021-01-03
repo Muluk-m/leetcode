@@ -29,11 +29,11 @@
  * @return {string[]}
  */
 var commonChars = function(A) {
-    let ans = [], word = A[0], slen = word.length
-    for(let s of word){
-        if(A.every(m => m.includes(s))) {
-            A = A.map(m => m.replace(s, ''))
-            ans.push(s)
+    let ans = [], word = A[0], slen = word.length // ans放结果用,word保存第一个字符串进行判断其他的字符串是否等量
+    for(let s of word){ // s是字符串中的每个字符
+        if(A.every(m => m.includes(s))) { // 如果A的每个字符串都包含s这个字符
+            A = A.map(m => m.replace(s, '')) // 那么就把A中的这个值给他删除了
+            ans.push(s) // 将s这个这个值放进最终结果的数组中
         }
     }
     return ans
