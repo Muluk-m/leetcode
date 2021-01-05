@@ -1,10 +1,9 @@
 <script>
     //深拷贝
     function copy(data) {
-        var content
         if (data && typeof data !== "object") { return data }
         else {
-            content = Array.isArray(data) ? [] : {}
+           let content = Array.isArray(data) ? [] : {}
             if (Array.isArray(data)) {
                 data.forEach((item, index) => content[index] = copy(item))
             } else {
@@ -24,4 +23,19 @@
     var newData = copy(obj)
     newData.b.b = 5
     console.log(newData, obj);
+
+    function deepClone(source) {
+        if (!source && typeof source !== 'object') {
+            throw new Error('error arguments', 'deepClone')
+        }
+        const targetObj = source.constructor === Array ? [] : {}
+        Object.keys(source).forEach(keys => {
+            if (source[keys] && typeof source[keys] === 'object') {
+                targetObj[keys] = deepClone(source[keys])
+            } else {
+                targetObj[keys] = source[keys]
+            }
+        })
+        return targetObj
+    }
 </script>
