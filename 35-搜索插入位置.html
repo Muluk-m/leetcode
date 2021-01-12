@@ -27,9 +27,11 @@
  */
  var searchInsert = function(nums, target) {
     if(nums.includes(target))return nums.indexOf(target)
-    for(let i=0; i<nums.length; i++){
-        if(target>nums[i-1]&&target<nums[i])return i
-    }
-    return target> nums[nums.length-1]?nums.length:0
+    // for(let i=0; i<nums.length; i++){
+    //     if(target>nums[i-1]&&target<nums[i])return i
+    // }
+    // return target> nums[nums.length-1]?nums.length:0
+    nums.push(target)
+    return nums.sort((a,b)=>a-b).indexOf(target)
 };
 </script>
