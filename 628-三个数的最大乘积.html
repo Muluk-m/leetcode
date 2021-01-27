@@ -1,0 +1,30 @@
+<script>
+//     给你一个整型数组 nums ，在数组中找出由三个数组成的最大乘积，并输出这个乘积。
+
+//  
+
+// 示例 1：
+
+// 输入：nums = [1,2,3]
+// 输出：6
+// 示例 2：
+
+// 输入：nums = [1,2,3,4]
+// 输出：24
+// 示例 3：
+
+// 输入：nums = [-1,-2,-3]
+// 输出：-6
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maximumProduct = function (nums) {
+    var l = nums.length
+    nums.sort((a,b)=> a-b)
+    let num1=nums[0]*nums[1]*nums[l-1]
+    let num2=nums[l-3]*nums[l-2]*nums[l-1]
+    return Math.max(num1,num2)
+};
+</script>
