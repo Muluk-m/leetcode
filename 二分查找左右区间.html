@@ -1,0 +1,25 @@
+<script>
+
+  function left(a, x, lo = 0, hi = a.length) {
+    if (lo < hi) {
+      do {
+        const mid = (lo + hi) >>> 1;
+        if (a[mid] < x) lo = mid + 1;
+        else hi = mid;
+      } while (lo < hi);
+    }
+    return lo;
+  }
+
+  function right(a, x, lo = 0, hi = a.length) {
+    if (lo < hi) {
+      do {
+        const mid = (lo + hi) >>> 1;
+        if (a[mid] <= x) lo = mid + 1;
+        else hi = mid;
+      } while (lo < hi);
+    }
+    return lo;
+  }
+
+</script>
