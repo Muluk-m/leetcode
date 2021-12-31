@@ -1,0 +1,836 @@
+<script>
+  const mock = [
+    {
+      "id": "grocery_menu_xinyun",
+      "url": "",
+      "title": "星云系统菜单栏",
+      "contentValue": "",
+      "sortNum": 1,
+      "children": [
+        {
+          "id": "grocery_menu_xinyun_asset",
+          "url": "/xingyun/assets-manage",
+          "title": "资产白皮书",
+          "contentValue": "",
+          "sortNum": 2,
+          "children": [
+            {
+              "id": "grocery_menu_xinyun_asset_directory",
+              "url": "/xingyun/assets-manage",
+              "title": "数据全景",
+              "contentValue": "{\"icon\":\"AssetManageIcon\"}",
+              "sortNum": 11,
+              "children": [
+                {
+                  "id": "grocery_menu_xinyun_asset_asset",
+                  "url": "/xingyun/assets-manage/asset",
+                  "title": "搜索结果",
+                  "contentValue": "{\"isSubPage\":1}",
+                  "sortNum": 47,
+                  "children": [],
+                  "pid": "grocery_menu_xinyun_asset_directory"
+                }
+              ],
+              "pid": "grocery_menu_xinyun_asset"
+            },
+            {
+              "id": "grocery_menu_xinyun_asset_config_list",
+              "url": "/xingyun/assets-manage/table-manage",
+              "title": "表资产",
+              "contentValue": "{\"icon\":\"TableManageIcon\"}",
+              "sortNum": 12,
+              "children": [
+                {
+                  "id": "grocery_menu_xinyun_asset_table_detail",
+                  "url": "/xingyun/assets-manage/detail/table",
+                  "title": "表详情",
+                  "contentValue": "{\"isSubPage\":1}",
+                  "sortNum": 48,
+                  "children": [],
+                  "pid": "grocery_menu_xinyun_asset_config_list"
+                }
+              ],
+              "pid": "grocery_menu_xinyun_asset"
+            },
+            {
+              "id": "grocery_menu_xinyun_asset_config_quota",
+              "url": "/xingyun/assets-manage/quota-manage",
+              "title": "指标资产",
+              "contentValue": "{\"icon\":\"QuotaManageIcon\"}",
+              "sortNum": 13,
+              "children": [
+                {
+                  "id": "grocery_menu_xinyun_asset_index_detail",
+                  "url": "/xingyun/assets-manage/detail/indicator",
+                  "title": "指标详情",
+                  "contentValue": "{\"isSubPage\":1}",
+                  "sortNum": 49,
+                  "children": [],
+                  "pid": "grocery_menu_xinyun_asset_config_quota"
+                }
+              ],
+              "pid": "grocery_menu_xinyun_asset"
+            },
+            {
+              "id": "grocery_menu_xinyun_asset_tag",
+              "url": "/xingyun/?url=/tag-meta?hideMenu=1",
+              "title": "标签资产",
+              "contentValue": "{\"icon\":\"RobotOutlined\"}",
+              "sortNum": 14,
+              "children": [],
+              "pid": "grocery_menu_xinyun_asset"
+            },
+            {
+              "id": "grocery_menu_xinyun_asset_config_knowledge",
+              "url": "/xingyun/assets-manage/know-manage",
+              "title": "知识库",
+              "contentValue": "{\"icon\":\"TagIcon\"}",
+              "sortNum": 15,
+              "children": [
+                {
+                  "id": "grocery_menu_xinyun_asset_config_knowledgeDetail",
+                  "url": "/xingyun/assets-manage/detail-knowledge",
+                  "title": "知识库详情",
+                  "contentValue": "",
+                  "sortNum": 50,
+                  "children": [],
+                  "pid": "grocery_menu_xinyun_asset_config_knowledge"
+                }
+              ],
+              "pid": "grocery_menu_xinyun_asset"
+            },
+            {
+              "id": "grocery_menu_xinyun_asset_others",
+              "url": "",
+              "title": "其他资产",
+              "contentValue": "{\"icon\":\"KnowManageIcon\"}",
+              "sortNum": 16,
+              "children": [
+                {
+                  "id": "grocery_menu_xinyun_asset_config_data_flow",
+                  "url": "/xingyun/assets-manage/stream-manage",
+                  "title": "数据流",
+                  "contentValue": "#",
+                  "sortNum": 51,
+                  "children": [],
+                  "pid": "grocery_menu_xinyun_asset_others"
+                },
+                {
+                  "id": "grocery_menu_xinyun_asset_flow",
+                  "url": "/xingyun/?url=/traffic-metadata/event-list?hideMenu=1",
+                  "title": "埋点",
+                  "contentValue": "",
+                  "sortNum": 52,
+                  "children": [
+                    {
+                      "id": "grocery_menu_xinyun_asset_flowDetail",
+                      "url": "/xingyun/?url=/traffic-metadata/page-detail",
+                      "title": "埋点详情",
+                      "contentValue": "",
+                      "sortNum": 78,
+                      "children": [],
+                      "pid": "grocery_menu_xinyun_asset_flow"
+                    }
+                  ],
+                  "pid": "grocery_menu_xinyun_asset_others"
+                }
+              ],
+              "pid": "grocery_menu_xinyun_asset"
+            },
+            {
+              "id": "grocery_menu_xinyun_asset_config_interest_list",
+              "url": "/xingyun/assets-manage/interest-list",
+              "title": "我的收藏",
+              "contentValue": "{\"icon\":\"InterestIcon\"}",
+              "sortNum": 17,
+              "children": [],
+              "pid": "grocery_menu_xinyun_asset"
+            },
+            {
+              "id": "grocery_menu_xinyun_asset_config",
+              "url": "",
+              "title": "主题管理",
+              "contentValue": "{\"icon\":\"ThemeIcon\"}",
+              "sortNum": 18,
+              "children": [
+                {
+                  "id": "grocery_menu_xinyun_asset_config_topic",
+                  "url": "/xingyun/assets-manage/topic-manage",
+                  "title": "表/数据流",
+                  "contentValue": "",
+                  "sortNum": 53,
+                  "children": [],
+                  "pid": "grocery_menu_xinyun_asset_config"
+                },
+                {
+                  "id": "grocery_menu_xinyun_asset_knowledge_topic",
+                  "url": "/xingyun/assets-manage/knowledge-topic-manage",
+                  "title": "知识库",
+                  "contentValue": "",
+                  "sortNum": 54,
+                  "children": [],
+                  "pid": "grocery_menu_xinyun_asset_config"
+                }
+              ],
+              "pid": "grocery_menu_xinyun_asset"
+            },
+            {
+              "id": "grocery_menu_xinyun_asset_feedback",
+              "url": "https://img.meituan.net/groceryapi/0a7ab357c91a00209a7dbff726c0e5d980511.png",
+              "title": "沟通群",
+              "contentValue": "{\"type\":\"img\", \"icon\":\"EyeOutlined\"}",
+              "sortNum": 19,
+              "children": [],
+              "pid": "grocery_menu_xinyun_asset"
+            },
+            {
+              "id": "grocery_menu_xinyun_asset_assist",
+              "url": "https://xingyun.vip.sankuai.com/xingyun/assets-manage/detail-knowledge?id=75",
+              "title": "用户手册",
+              "contentValue": "{\"type\":\"wiki\",\"openNew\":1, \"icon\":\"InfoCircleOutlined\"}",
+              "sortNum": 20,
+              "children": [],
+              "pid": "grocery_menu_xinyun_asset"
+            }
+          ],
+          "pid": "grocery_menu_xinyun"
+        },
+        {
+          "id": "grocery_menu_xinyun_tag",
+          "url": "/xingyun/tag-lab?themeCode=grocery_menu_xingyun_tag_lab_pdt",
+          "title": "数据标签",
+          "contentValue": "{\"isHide\":0}",
+          "sortNum": 3,
+          "children": [
+            {
+              "id": "grocery_menu_xingyun_tag_lab",
+              "url": "",
+              "title": "标签图书馆",
+              "contentValue": "{\"icon\":\"SolutionOutlined\"}",
+              "sortNum": 22,
+              "children": [
+                {
+                  "id": "grocery_menu_xingyun_tag_lab_pdt",
+                  "url": "/xingyun/tag-lab?themeCode=grocery_menu_xingyun_tag_lab_pdt",
+                  "title": "商品主题",
+                  "contentValue": "",
+                  "sortNum": 55,
+                  "children": [],
+                  "pid": "grocery_menu_xingyun_tag_lab"
+                },
+                {
+                  "id": "grocery_menu_xingyun_tag_lab_gh",
+                  "url": "/xingyun/tag-lab?themeCode=grocery_menu_xingyun_tag_lab_gh",
+                  "title": "团长主题",
+                  "contentValue": "",
+                  "sortNum": 56,
+                  "children": [],
+                  "pid": "grocery_menu_xingyun_tag_lab"
+                },
+                {
+                  "id": "grocery_menu_xingyun_tag_lab_usr",
+                  "url": "/xingyun/tag-lab?themeCode=grocery_menu_xingyun_tag_lab_usr",
+                  "title": "用户主题",
+                  "contentValue": "",
+                  "sortNum": 57,
+                  "children": [],
+                  "pid": "grocery_menu_xingyun_tag_lab"
+                },
+                {
+                  "id": "grocery_menu_xingyun_tag_lab_sup",
+                  "url": "/xingyun/tag-lab?themeCode=grocery_menu_xingyun_tag_lab_sup",
+                  "title": "供应商主题",
+                  "contentValue": "{\"isHide\":1}",
+                  "sortNum": 58,
+                  "children": [],
+                  "pid": "grocery_menu_xingyun_tag_lab"
+                },
+                {
+                  "id": "grocery_menu_xingyun_tag_lab_sc",
+                  "url": "/xingyun/tag-lab?themeCode=grocery_menu_xingyun_tag_lab_sc",
+                  "title": "物流主题",
+                  "contentValue": "{\"isHide\":1}",
+                  "sortNum": 59,
+                  "children": [],
+                  "pid": "grocery_menu_xingyun_tag_lab"
+                }
+              ],
+              "pid": "grocery_menu_xinyun_tag"
+            },
+            {
+              "id": "grocery_menu_xinyun_tag_manage",
+              "url": "",
+              "title": "元数据管理",
+              "contentValue": "{\"icon\":\"AppstoreOutlined\"}",
+              "sortNum": 23,
+              "children": [
+                {
+                  "id": "grocery_menu_xingyun_tag_label",
+                  "url": "/xingyun/tag-meta",
+                  "title": "标签元数据",
+                  "contentValue": "",
+                  "sortNum": 60,
+                  "children": [],
+                  "pid": "grocery_menu_xinyun_tag_manage"
+                },
+                {
+                  "id": "grocery_menu_xingyun_tag_model",
+                  "url": "/xingyun/tag-model",
+                  "title": "表模型管理",
+                  "contentValue": "",
+                  "sortNum": 61,
+                  "children": [],
+                  "pid": "grocery_menu_xinyun_tag_manage"
+                }
+              ],
+              "pid": "grocery_menu_xinyun_tag"
+            },
+            {
+              "id": "grocery_menu_xinyun_tag_feedback",
+              "url": "https://img.meituan.net/groceryapi/69dfb00ef037698eaa494dbb6e564c5e31127493.png",
+              "title": "沟通群",
+              "contentValue": "{\"type\":\"img\", \"icon\":\"EyeOutlined\"}",
+              "sortNum": 24,
+              "children": [],
+              "pid": "grocery_menu_xinyun_tag"
+            },
+            {
+              "id": "grocery_menu_xinyun_tag_assist",
+              "url": "https://km.sankuai.com/page/959026709",
+              "title": "用户手册",
+              "contentValue": "{\"type\":\"wiki\",\"openNew\":1, \"icon\":\"InfoCircleOutlined\"}",
+              "sortNum": 25,
+              "children": [],
+              "pid": "grocery_menu_xinyun_tag"
+            }
+          ],
+          "pid": "grocery_menu_xinyun"
+        },
+        {
+          "id": "grocery_menu_xinyun_traffic",
+          "url": "/xingyun/traffic-metadata/page-list",
+          "title": "流量归因",
+          "contentValue": "{\"isHide\":0}",
+          "sortNum": 4,
+          "children": [
+            {
+              "id": "grocery_menu_xinyun_traffic_page_list",
+              "url": "/xingyun/traffic-metadata/page-list",
+              "title": "页面管理",
+              "contentValue": "{\"icon\":\"SolutionOutlined\"}",
+              "sortNum": 26,
+              "children": [
+                {
+                  "id": "grocery_menu_xinyun_traffic_page_detail",
+                  "url": "/xingyun/traffic-metadata/page-detail",
+                  "title": "页面详情",
+                  "contentValue": "{\"isSubPage\":1}",
+                  "sortNum": 62,
+                  "children": [],
+                  "pid": "grocery_menu_xinyun_traffic_page_list"
+                },
+                {
+                  "id": "grocery_menu_xinyun_traffic_detailEdit",
+                  "url": "/xingyun/traffic-metadata/page-audit-detail",
+                  "title": "页面详情编辑",
+                  "contentValue": "",
+                  "sortNum": 63,
+                  "children": [],
+                  "pid": "grocery_menu_xinyun_traffic_page_list"
+                }
+              ],
+              "pid": "grocery_menu_xinyun_traffic"
+            },
+            {
+              "id": "grocery_menu_xinyun_traffic_event_list",
+              "url": "/xingyun/traffic-metadata/event-list",
+              "title": "事件索引",
+              "contentValue": "{\"icon\":\"SearchOutlined\"}",
+              "sortNum": 27,
+              "children": [],
+              "pid": "grocery_menu_xinyun_traffic"
+            },
+            {
+              "id": "grocery_menu_xinyun_traffic_param_list",
+              "url": "/xingyun/traffic-metadata/param-list",
+              "title": "参数管理",
+              "contentValue": "{\"icon\":\"PartitionOutlined\"}",
+              "sortNum": 28,
+              "children": [
+                {
+                  "id": "grocery_menu_xinyun_traffic_param_detail",
+                  "url": "/xingyun/traffic-metadata/param-detail",
+                  "title": "参数详情",
+                  "contentValue": "{\"isSubPage\":1}",
+                  "sortNum": 64,
+                  "children": [],
+                  "pid": "grocery_menu_xinyun_traffic_param_list"
+                }
+              ],
+              "pid": "grocery_menu_xinyun_traffic"
+            },
+            {
+              "id": "grocery_menu_xinyun_traffic_feedback",
+              "url": "https://img.meituan.net/groceryapi/f1c9fd75f932544f6119a9abcadf4b69101946533.png",
+              "title": "沟通群",
+              "contentValue": "{\"type\":\"img\", \"icon\":\"EyeOutlined\"}",
+              "sortNum": 29,
+              "children": [],
+              "pid": "grocery_menu_xinyun_traffic"
+            },
+            {
+              "id": "grocery_menu_xinyun_traffic_assist",
+              "url": "https://km.sankuai.com/page/805042799",
+              "title": "说明文档",
+              "contentValue": "{\"type\":\"wiki\",\"openNew\":1, \"icon\":\"InfoCircleOutlined\"}",
+              "sortNum": 30,
+              "children": [],
+              "pid": "grocery_menu_xinyun_traffic"
+            },
+            {
+              "id": "grocery_menu_xinyun_traffic_assist_refer",
+              "url": "",
+              "title": "参考内容",
+              "contentValue": "{\"icon\":\"FolderViewOutlined\"}",
+              "sortNum": 31,
+              "children": [
+                {
+                  "id": "grocery_menu_xinyun_traffic_assist_refer_attri",
+                  "url": "/xingyun/?url=https://km.sankuai.com/page/1147590111?open=false",
+                  "title": "归因FAQ",
+                  "contentValue": "",
+                  "sortNum": 65,
+                  "children": [],
+                  "pid": "grocery_menu_xinyun_traffic_assist_refer"
+                },
+                {
+                  "id": "grocery_menu_xinyun_traffic_assist_refer_grey",
+                  "url": "/xingyun/?url=https://bi.sankuai.com/dashboard/75343?spaceType=3&projectId=105490",
+                  "title": "灰度数据报表",
+                  "contentValue": "",
+                  "sortNum": 66,
+                  "children": [],
+                  "pid": "grocery_menu_xinyun_traffic_assist_refer"
+                }
+              ],
+              "pid": "grocery_menu_xinyun_traffic"
+            }
+          ],
+          "pid": "grocery_menu_xinyun"
+        },
+        {
+          "id": "grocery_menu_xinyun_monitor",
+          "url": "/xingyun/monitor/check-list",
+          "title": "数据监控",
+          "contentValue": "{\"isHide\":0}",
+          "sortNum": 5,
+          "children": [
+            {
+              "id": "grocery_menu_xinyun_monitor_check",
+              "url": "",
+              "title": "数据对账",
+              "contentValue": "{\"icon\":\"AuditOutlined\"}",
+              "sortNum": 32,
+              "children": [
+                {
+                  "id": "grocery_menu_xinyun_monitor_check_list",
+                  "url": "/xingyun/monitor/check-list",
+                  "title": "监控列表",
+                  "contentValue": "{\"icon\":\"BarsOutlined\"}",
+                  "sortNum": 67,
+                  "children": [
+                    {
+                      "id": "grocery_menu_xinyun_monitor_check_add",
+                      "url": "/xingyun/monitor/check-add",
+                      "title": "新建监控",
+                      "contentValue": "{\"isSubPage\":1}",
+                      "sortNum": 79,
+                      "children": [],
+                      "pid": "grocery_menu_xinyun_monitor_check_list"
+                    }
+                  ],
+                  "pid": "grocery_menu_xinyun_monitor_check"
+                },
+                {
+                  "id": "grocery_menu_xinyun_monitor_check_dashboard",
+                  "url": "/xingyun/monitor/check-dashboard",
+                  "title": "运行大盘",
+                  "contentValue": "{\"icon\":\"LineChartOutlined\"}",
+                  "sortNum": 68,
+                  "children": [
+                    {
+                      "id": "grocery_menu_xinyun_monitor_check_detail",
+                      "url": "/xingyun/monitor/check-detail",
+                      "title": "对账明细",
+                      "contentValue": "{\"isSubPage\":1}",
+                      "sortNum": 80,
+                      "children": [],
+                      "pid": "grocery_menu_xinyun_monitor_check_dashboard"
+                    },
+                    {
+                      "id": "grocery_menu_xinyun_monitor_check_dynamic",
+                      "url": "/xingyun/monitor/check-dynamic",
+                      "title": "运行动态",
+                      "contentValue": "{\"isSubPage\":1}",
+                      "sortNum": 81,
+                      "children": [],
+                      "pid": "grocery_menu_xinyun_monitor_check_dashboard"
+                    },
+                    {
+                      "id": "grocery_menu_xinyun_monitor_check_areachart",
+                      "url": "/xingyun/monitor/check-areachart",
+                      "title": "运行动态(单维)",
+                      "contentValue": "{\"isSubPage\":1}",
+                      "sortNum": 82,
+                      "children": [],
+                      "pid": "grocery_menu_xinyun_monitor_check_dashboard"
+                    }
+                  ],
+                  "pid": "grocery_menu_xinyun_monitor_check"
+                },
+                {
+                  "id": "grocery_menu_xinyun_monitor_duty",
+                  "url": "",
+                  "title": "值班组",
+                  "contentValue": "{\"icon\":\"TeamOutlined\"}",
+                  "sortNum": 69,
+                  "children": [
+                    {
+                      "id": "grocery_menu_xinyun_monitor_duty_list",
+                      "url": "/xingyun/monitor/duty-list",
+                      "title": "值班列表",
+                      "contentValue": "",
+                      "sortNum": 83,
+                      "children": [
+                        {
+                          "id": "grocery_menu_xinyun_monitor_duty_add",
+                          "url": "/xingyun/monitor/duty-add",
+                          "title": "新建值班表",
+                          "contentValue": "{\"isSubPage\":1}",
+                          "sortNum": 87,
+                          "children": [],
+                          "pid": "grocery_menu_xinyun_monitor_duty_list"
+                        }
+                      ],
+                      "pid": "grocery_menu_xinyun_monitor_duty"
+                    }
+                  ],
+                  "pid": "grocery_menu_xinyun_monitor_check"
+                }
+              ],
+              "pid": "grocery_menu_xinyun_monitor"
+            },
+            {
+              "id": "grocery_menu_xinyun_monitor_dqc",
+              "url": "",
+              "title": "实时DQC",
+              "contentValue": "{\"icon\":\"AreaChartOutlined\"}",
+              "sortNum": 33,
+              "children": [
+                {
+                  "id": "grocery_menu_xinyun_monitor_dqc_list",
+                  "url": "/xingyun/monitor/dqc-list",
+                  "title": "监控项列表",
+                  "contentValue": "{\"icon\":\"BarsOutlined\"}",
+                  "sortNum": 70,
+                  "children": [
+                    {
+                      "id": "grocery_menu_xinyun_monitor_dqc_manage",
+                      "url": "/xingyun/monitor/dqc-manage",
+                      "title": "实时指标管理",
+                      "contentValue": "{\"isSubPage\":1}",
+                      "sortNum": 84,
+                      "children": [],
+                      "pid": "grocery_menu_xinyun_monitor_dqc_list"
+                    },
+                    {
+                      "id": "grocery_menu_xinyun_monitor_dqc_result",
+                      "url": "/xingyun/monitor/dqc-result",
+                      "title": "实时查询",
+                      "contentValue": "{\"isSubPage\":1}",
+                      "sortNum": 85,
+                      "children": [],
+                      "pid": "grocery_menu_xinyun_monitor_dqc_list"
+                    }
+                  ],
+                  "pid": "grocery_menu_xinyun_monitor_dqc"
+                }
+              ],
+              "pid": "grocery_menu_xinyun_monitor"
+            },
+            {
+              "id": "grocery_menu_eventMoniter",
+              "url": "https://cts.sankuai.com/monitor/offline.html",
+              "title": "埋点监控",
+              "contentValue": "{\"openNew\":true, \"icon\":\"FolderViewOutlined\"}",
+              "sortNum": 34,
+              "children": [
+                {
+                  "id": "grocery_menu_eventOffline",
+                  "url": "https://cts.sankuai.com/monitor/config.html",
+                  "title": "离线监控配置",
+                  "contentValue": "{\"openNew\":true}",
+                  "sortNum": 71,
+                  "children": [],
+                  "pid": "grocery_menu_eventMoniter"
+                },
+                {
+                  "id": "grocery_menu_eventOnline",
+                  "url": "https://cts.sankuai.com/monitor/online/config.html",
+                  "title": "实时监控配置",
+                  "contentValue": "{\"openNew\":true}",
+                  "sortNum": 72,
+                  "children": [],
+                  "pid": "grocery_menu_eventMoniter"
+                }
+              ],
+              "pid": "grocery_menu_xinyun_monitor"
+            },
+            {
+              "id": "grocery_menu_platMonitor",
+              "url": "http://dqc.data.sankuai.com/tables",
+              "title": "平台监控链接",
+              "contentValue": "{\"openNew\":true, \"icon\":\"FolderViewOutlined\"}",
+              "sortNum": 35,
+              "children": [],
+              "pid": "grocery_menu_xinyun_monitor"
+            },
+            {
+              "id": "grocery_menu_xinyun_monitor_feedback",
+              "url": "https://img.meituan.net/groceryapi/6859aeb9fd0a954dee259b7b32e5257e37915664.png",
+              "title": "反馈群",
+              "contentValue": "{\"type\":\"img\",\"icon\":\"EyeOutlined\"}",
+              "sortNum": 36,
+              "children": [],
+              "pid": "grocery_menu_xinyun_monitor"
+            },
+            {
+              "id": "grocery_menu_xinyun_monitor_help",
+              "url": "https://km.sankuai.com/page/840224039",
+              "title": "用户手册",
+              "contentValue": "{\"type\":\"wiki\",\"openNew\":1,\"icon\":\"InfoCircleOutlined\"}",
+              "sortNum": 37,
+              "children": [],
+              "pid": "grocery_menu_xinyun_monitor"
+            }
+          ],
+          "pid": "grocery_menu_xinyun"
+        },
+        {
+          "id": "grocery_menu_xinyun_tool",
+          "url": "/xingyun/tag-config",
+          "title": "数据工具",
+          "contentValue": "",
+          "sortNum": 6,
+          "children": [
+            {
+              "id": "grocery_menu_xinyun_meta",
+              "url": "",
+              "title": "元数据配置",
+              "contentValue": "",
+              "sortNum": 38,
+              "children": [
+                {
+                  "id": "grocery_menu_xinyun_meta_content",
+                  "url": "/xingyun/tag-config",
+                  "title": "内容运维配置",
+                  "contentValue": "",
+                  "sortNum": 73,
+                  "children": [],
+                  "pid": "grocery_menu_xinyun_meta"
+                },
+                {
+                  "id": "grocery_menu_xinyun_meta_routing",
+                  "url": "/xingyun/route-config/pages/rules-list",
+                  "title": "模型路由策略配置",
+                  "contentValue": "",
+                  "sortNum": 74,
+                  "children": [
+                    {
+                      "id": "grocery_menu_xinyun_meta_routing_manage",
+                      "url": "/xingyun/route-config/pages/rules-manage",
+                      "title": "模型路由策略配置-管理页",
+                      "contentValue": "",
+                      "sortNum": 86,
+                      "children": [],
+                      "pid": "grocery_menu_xinyun_meta_routing"
+                    }
+                  ],
+                  "pid": "grocery_menu_xinyun_meta"
+                }
+              ],
+              "pid": "grocery_menu_xinyun_tool"
+            }
+          ],
+          "pid": "grocery_menu_xinyun"
+        },
+        {
+          "id": "grocery_menu_xinyun_push",
+          "url": "/xingyun/push-tool/pages/push-manage",
+          "title": "数据推送",
+          "contentValue": "{\"isHide\":0}",
+          "sortNum": 7,
+          "children": [
+            {
+              "id": "grocery_menu_xinyun_push_manage",
+              "url": "/xingyun/push-tool/pages/push-manage",
+              "title": "推送管理",
+              "contentValue": "{\"icon\":\"BarsOutlined\"}",
+              "sortNum": 39,
+              "children": [],
+              "pid": "grocery_menu_xinyun_push"
+            },
+            {
+              "id": "grocery_menu_xinyun_push_config",
+              "url": "/xingyun/push-tool/pages/push-config",
+              "title": "推送配置",
+              "contentValue": "{\"icon\":\"AppstoreAddOutlined\"}",
+              "sortNum": 40,
+              "children": [
+                {
+                  "id": "grocery_menu_xinyun_push_field_select",
+                  "url": "/xingyun/push-tool/pages/push-field-select",
+                  "title": "字段选择",
+                  "contentValue": "{\"isSubPage\":1}",
+                  "sortNum": 75,
+                  "children": [],
+                  "pid": "grocery_menu_xinyun_push_config"
+                },
+                {
+                  "id": "grocery_menu_xinyun_push_field_config",
+                  "url": "/xingyun/push-tool/pages/push-field-config",
+                  "title": "字段配置",
+                  "contentValue": "{\"isSubPage\":1}",
+                  "sortNum": 76,
+                  "children": [],
+                  "pid": "grocery_menu_xinyun_push_config"
+                }
+              ],
+              "pid": "grocery_menu_xinyun_push"
+            },
+            {
+              "id": "grocery_menu_xinyun_push_auth",
+              "url": "https://auth.sankuai.com/resource?system=grocery_push_service&lock=lock&hideMenu=1",
+              "title": "权限设置",
+              "contentValue": "{\"openNew\":1,\"icon\":\"UserAddOutlined\"}",
+              "sortNum": 41,
+              "children": [],
+              "pid": "grocery_menu_xinyun_push"
+            },
+            {
+              "id": "grocery_menu_xinyun_push_help",
+              "url": "https://km.sankuai.com/page/952682390",
+              "title": "帮助文档",
+              "contentValue": "{\"openNew\":1,\"type\":\"wiki\",\"icon\":\"QuestionCircleOutlined\"}",
+              "sortNum": 42,
+              "children": [],
+              "pid": "grocery_menu_xinyun_push"
+            }
+          ],
+          "pid": "grocery_menu_xinyun"
+        },
+        {
+          "id": "grocery_menu_xinyun_related",
+          "url": "/xingyun/?url=https://bi.sankuai.com/dashboard/68991",
+          "title": "相关链接",
+          "contentValue": "",
+          "sortNum": 8,
+          "children": [
+            {
+              "id": "grocery_menu_xinyun_related_analysis",
+              "url": "/xingyun/?url=https://bi.sankuai.com/dashboard/68991",
+              "title": "星云使用分析",
+              "contentValue": "",
+              "sortNum": 43,
+              "children": [],
+              "pid": "grocery_menu_xinyun_related"
+            }
+          ],
+          "pid": "grocery_menu_xinyun"
+        },
+        {
+          "id": "grocery_menu_xinyun_home",
+          "url": "/xingyun/",
+          "title": "星云首页",
+          "contentValue": "{\"isHide\":1}",
+          "sortNum": 9,
+          "children": [],
+          "pid": "grocery_menu_xinyun"
+        },
+        {
+          "id": "grocery_menu_xingyun_multilink",
+          "url": "/xingyun/multilink/fault-market",
+          "title": "全链路监控",
+          "contentValue": "",
+          "sortNum": 10,
+          "children": [
+            {
+              "id": "grocery_menu_xingyun_multilink_fault_market",
+              "url": "/xingyun/multilink/fault-market",
+              "title": "故障大盘",
+              "contentValue": "",
+              "sortNum": 44,
+              "children": [
+                {
+                  "id": "grocery_menu_xingyun_multilink_fault_node",
+                  "url": "/xingyun/multilink/fault-node",
+                  "title": "故障节点",
+                  "contentValue": "{\"isSubPage\":1}",
+                  "sortNum": 77,
+                  "children": [],
+                  "pid": "grocery_menu_xingyun_multilink_fault_market"
+                }
+              ],
+              "pid": "grocery_menu_xingyun_multilink"
+            },
+            {
+              "id": "grocery_menu_xingyun_multilink_link_configuration",
+              "url": "/xingyun/multilink/link-configuration",
+              "title": "链路配置",
+              "contentValue": "",
+              "sortNum": 45,
+              "children": [],
+              "pid": "grocery_menu_xingyun_multilink"
+            },
+            {
+              "id": "grocery_menu_xingyun_multilink_node_list",
+              "url": "/xingyun/multilink/node-list",
+              "title": "节点列表",
+              "contentValue": "",
+              "sortNum": 46,
+              "children": [],
+              "pid": "grocery_menu_xingyun_multilink"
+            }
+          ],
+          "pid": "grocery_menu_xinyun"
+        }
+      ],
+      "pid": "-1"
+    }
+  ]
+  
+  const flattenTree = (treeData) =>
+    treeData.reduce(
+      (menuList, cur) => menuList.concat(cur, Array.isArray(cur?.children) ? flattenTree(cur.children) : []),
+      []
+    ).map(({ children, ...item }) => ({ ...item }))
+
+
+  const list2tree = (list) => {
+    const tree = []
+    const idMapping = list.reduce((map, item) => ({ ...map, [item.id]: { ...item, children: [] } }), {})
+
+    list.forEach(item => {
+      if (item.pid === '-1') {
+        tree.push(idMapping[item.id])
+      } else {
+        idMapping[item.pid].children.push(item)
+      }
+    });
+
+    return tree
+  }
+
+  const list = flattenTree(mock)
+  console.log(list2tree(list));
+</script>

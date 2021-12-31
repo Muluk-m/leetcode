@@ -3,7 +3,7 @@
     function copy(data) {
         if (data && typeof data !== "object") { return data }
         else {
-           let content = Array.isArray(data) ? [] : {}
+            let content = Array.isArray(data) ? [] : {}
             if (Array.isArray(data)) {
                 data.forEach((item, index) => content[index] = copy(item))
             } else {
@@ -38,4 +38,18 @@
         })
         return targetObj
     }
+
+    const deepCopy = (params) => {
+        const type = Object.prototype.toString.call(params).slice(8, -1);
+        switch (type) {
+            case 'Object':
+                return Object.keys(params).reduce((obj, key) => ({ ...obj, [key]: deepCopy(params[key]) }), {});
+            case 'Array':
+                return Object.keys(params).map((i) => deepCopy(params[i]));
+            default:
+                return params;
+        }
+    };
+    export default deepCopy;
+
 </script>
