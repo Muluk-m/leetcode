@@ -5,10 +5,21 @@
     str.split('').forEach(item => obj.hasOwnProperty(item) ? obj[item]++ : obj[item] = 1)
     var maxTime = Math.max(...Object.values(obj))
     return {
-      maxCount:maxTime, //出现最多次数
-      maxVal:Object.keys(obj)[Object.values(obj).indexOf(maxTime)] //出现最多的元素
+      maxCount: maxTime, //出现最多次数
+      maxVal: Object.keys(obj)[Object.values(obj).indexOf(maxTime)] //出现最多的元素
     }
   }
   console.log(maxStr(str));
+
+  const maxStrLength = (str) => {
+    const strMap = str.split('').reduce((res, curStr) => ({ ...res, [curStr]: res[curStr] ? res[curStr] + 1 : 1 }), {})
+    const maxLength = Math.max(...Object.values(strMap))
+    const [maxStr] = Object.entries(strMap).find(([k, v]) => v === maxLength)
+
+    return {
+      maxLength,
+      maxStr
+    }
+  }
 
 </script>

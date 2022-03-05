@@ -1,46 +1,116 @@
 <script>
   // 插入排序
   const a = [1, 3, 5, 1];
-  const sort = a => {
+  const sort1 = (a) => {
     for (let i = 1; i < a.length; i++)
-      for (let j = i; j-- && a[j + 1] < a[j];)
-        [a[j + 1], a[j]] = [a[j], a[j + 1]]
-    return a
-  }
+      for (let j = i; j-- && a[j + 1] < a[j]; )
+        [a[j + 1], a[j]] = [a[j], a[j + 1]];
+    return a;
+  };
 
   // 快速排序
-  const a = [1, 2, 3, 5, 1]
+  /**
+   * 快速排序的基本思想：
+   * 通过一趟排序将待排记录分隔成独立的两部分，
+   * 其中一部分记录的关键字均比另一部分的关键字小，
+   * 则可分别对这两部分记录继续进行排序，
+   * 以达到整个序列有序。
+   */
+  // const a = [1, 2, 3, 5, 1]
+  
   const sort = (a, s = 0, e = a.length - 1) => {
-    if (s >= e) return
-    let l = s, r = e
+    if (s >= e) return;
+    let l = s,
+      r = e;
     while (l < r) {
-      while (l < r && a[r] >= a[s]) r--
-      while (l < r && a[l] <= a[s]) l++
-      [a[l], a[r]] = [a[r], a[l]]
+      while (l < r && a[r] >= a[s]) r--;
+      while (l < r && a[l] <= a[s]) l++;
+      [a[l], a[r]] = [a[r], a[l]];
     }
-    [a[l], a[s]] = [a[s], a[l]]
-    sort(a, s, l - 1)
-    sort(a, l + 1, e)
-    return a
-  }
+    [a[l], a[s]] = [a[s], a[l]];
+    sort(a, s, l - 1);
+    sort(a, l + 1, e);
+    return a;
+  };
 
   // 归并排序
-  const sort = (a, l = 0, r = a.length - 1) => {
-    if (l === r) return
-    const m = l + r >>> 1, t = []
-    sort(a, l, m)
-    sort(a, m + 1, r)
-    let p1 = l, p2 = m + 1, i = 0
-    while (p1 <= m || p2 <= r) t[i++] = p2 > r || p1 <= m && a[p1] < a[p2] ? a[p1++] : a[p2++]
-    for (i = 0; i < t.length; i++) a[l + i] = t[i]
-    return a
-  }
+  const sort3 = (a, l = 0, r = a.length - 1) => {
+    if (l === r) return;
+    const m = (l + r) >>> 1,
+      t = [];
+    sort(a, l, m);
+    sort(a, m + 1, r);
+    let p1 = l,
+      p2 = m + 1,
+      i = 0;
+    while (p1 <= m || p2 <= r)
+      t[i++] = p2 > r || (p1 <= m && a[p1] < a[p2]) ? a[p1++] : a[p2++];
+    for (i = 0; i < t.length; i++) a[l + i] = t[i];
+    return a;
+  };
 
   // 冒泡排序
-  const sort = (a) => {
+  const sort4 = (a) => {
+    console.time("普通冒泡排序耗时");
     for (let i = 0; i < a.length - 1; i++)
       for (let j = 0; j < a.length - 1 - i; j++)
-        if (a[j] > a[j + 1]) [a[j], a[j + 1]] = [a[j + 1], a[j]]
-    return a
+        if (a[j] > a[j + 1]) [a[j], a[j + 1]] = [a[j + 1], a[j]];
+    console.timeEnd("普通冒泡排序耗时");
+
+    return a;
+  };
+
+  /**
+   * 选择排序
+   * 每次找到最小值放入序首
+   */
+  function selectionSort(arr) {
+    console.time("选择排序耗时");
+    var len = arr.length;
+    var minIndex;
+    for (var i = 0; i < len - 1; i++) {
+      minIndex = i;
+      for (var j = i + 1; j < len; j++) {
+        if (arr[j] < arr[minIndex]) {
+          //寻找最小的数
+          minIndex = j; //将最小数的索引保存
+        }
+      }
+      [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+    }
+    console.timeEnd("选择排序耗时");
+    return arr;
   }
+
+  /**
+   * 改进的选择排序
+   * 每次找到最小值放入序首,最大值放入队尾
+   */
+  function selectionSort2(arr) {
+    console.time("选择排序耗时");
+    var low = 0,
+      hight = arr.length;
+    var minIndex;
+    var maxIndex = hight;
+    while (low < hight) {
+      minIndex = low;
+      for (let i = low + 1; i < hight; i++) {
+        if (arr[i] < arr[minIndex]) minIndex = i;
+      }
+
+      [arr[low], arr[minIndex]] = [arr[minIndex], arr[low]];
+
+      low++;
+      // hight--
+    }
+
+    console.timeEnd("选择排序耗时");
+    return arr;
+  }
+  console.log(
+    sort4([3, 44, 38, 5, 47, 15, 360, 26, 27, 2, 46, 4, 19, 50, 48])
+  );
+  console.log(
+    sort([3, 44, 38, 5, 47, 15, 360, 26, 27, 2, 46, 4, 19, 50, 48])
+  );
 </script>

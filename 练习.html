@@ -1,0 +1,175 @@
+<script>
+  /**
+   * flatten 数据打平
+   */
+  const arr1 = [1, 2, [3, 4, [3, 2]], 4];
+  const flatten = (arr) =>
+    arr.reduce(
+      (list, cur) => [...list, ...(Array.isArray(cur) ? flatten(cur) : [cur])],
+      []
+    );
+  console.log("flatten: ", flatten(arr1));
+
+  /**
+   * 数据去重
+   */
+  const arr2 = [1, 2, 2, 3, 4, 4, 5];
+  const reduction = (arr) => arr.filter((n, i, a) => a.indexOf(n) === i);
+  console.log("reduction: ", reduction(arr2));
+
+  /**
+   * 发布订阅
+   */
+  class EventEmitter {
+    constructor() {
+      this.eventList = new Map();
+    }
+
+    on(name, callback) {
+      const callbacks = this.eventList.get(name) || [];
+      callbacks.push(callback);
+      this.eventList.set(name, callbacks);
+    }
+
+    remove(name) {
+      this.eventList.delete(name);
+    }
+
+    emit(name, ...arg) {
+      const events = this.eventList.get(name) ?? [];
+      events.forEach((event) => {
+        event(...arg);
+      });
+    }
+  }
+
+  let eventBus = new EventEmitter();
+  let fn1 = function (name, age) {
+    console.log(`${name} ${age}`);
+  };
+  let fn2 = function (name, age) {
+    console.log(`hello, ${name} ${age}`);
+  };
+  eventBus.on("aaa", fn1);
+  eventBus.on("aaa", fn2);
+  eventBus.emit("aaa", "布兰", 12);
+
+  /**
+   * 冒泡排序
+   */
+  const bubble = (arr) => {
+    for (let i = 0; i < arr.length - 1; i++)
+      for (let j = 0; j < arr.length - 1 - i; j++)
+        if (arr[j] > arr[j + 1]) [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+    return arr;
+  };
+  console.log(bubble([1, 3, 2, 4, 5, 3, 2, 6, 73, 3, 23, 1, 5, 46]));
+
+  /**
+   * 防抖
+   */
+  const debounce = (callback, wait) => {
+    let timer;
+    return (...arg) => {
+      if (timer) {
+        clearTimeout(timer);
+      }
+
+      timer = setTimeout(() => callback(...arg), wait);
+    };
+  };
+
+  window.clickDebounce = debounce(() => {
+    console.log(1);
+  }, 1000);
+
+  /**
+   * 节流
+   */
+  const throttle = (callback, t) => {
+    let now = 0;
+    return (...arg) => {
+      if (Date.now() - now > t) {
+        callback(...arg);
+        now = Date.now();
+      }
+    };
+  };
+
+  window.clickThrottle = throttle(() => {
+    console.log(2);
+  }, 1000);
+
+  /**
+   * 函数柯里化
+   */
+  const curry = (fn) => {
+    let judge = (...args) => {
+      if (args.length === fn.length) return fn(...args);
+      return (...arg) => judge(...args, ...arg);
+    };
+    return judge;
+  };
+
+  /**
+   * 数据处理
+   */
+  const eventList = [
+    { start: "02:40 PM", end: "03:40 PM" },
+    { start: "02:20 AM", end: "08:40 PM" },
+    { start: "03:40 AM", end: "03:50 PM" },
+    { start: "04:40 PM", end: "06:40 PM" },
+    { start: "03:40 PM", end: "08:30 PM" },
+    { start: "01:40 AM", end: "02:30 AM" },
+    { start: "04:20 AM", end: "01:00 PM" },
+    { start: "05:40 AM", end: "06:40 PM" },
+    { start: "04:40 PM", end: "08:40 PM" },
+    { start: "05:40 PM", end: "09:40 PM" },
+  ];
+
+  /**
+   * 将每一项解析为 4位整数
+   * 例如 03:40 PM => 1540
+   */
+  const parserEvent = (timeStr) => {
+    let [time, type] = timeStr.split(" ");
+    time = +time.replace(":", "");
+
+    if (type === "PM") return time + 1200;
+
+    return time;
+  };
+
+  /**
+   * 将 eventList 按start时间先后进行从小到大排序
+   */
+  const sortEventList = (eventList) => {
+    return eventList.sort(
+      ({ start: a }, { start: b }) => parserEvent(a) - parserEvent(b)
+    );
+  };
+
+  /**
+   * 将 eventList 按start和end交叉的区间放在一个数组里输出 [[xx],[xx,xx]]
+   */
+  const handleEventList = (eventList) => {
+    const list = sortEventList(eventList);
+    const [{ end }] = list;
+    let pointer = parserEvent(end);
+
+    return list.reduce((res, cur) => {
+      const { start, end } = cur;
+
+      if (pointer > parserEvent(start)) {
+        const extra = res.slice(0, -1);
+        const fist = res.slice(-1);
+        return [...extra, [...fist, cur]];
+      }
+
+      pointer = parserEvent(end);
+      return [...res, [cur]];
+    }, []);
+  };
+
+  console.table(handleEventList(eventList));
+</script>

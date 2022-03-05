@@ -1,55 +1,58 @@
 <script>
-    //深拷贝
-    function copy(data) {
-        if (data && typeof data !== "object") { return data }
-        else {
-            let content = Array.isArray(data) ? [] : {}
-            if (Array.isArray(data)) {
-                data.forEach((item, index) => content[index] = copy(item))
-            } else {
-                for (key in data) content[key] = copy(data[key])
-            }
-        }
-        return content
+  //深拷贝
+  function copy(data) {
+    if (data && typeof data !== "object") {
+      return data;
+    } else {
+      let content = Array.isArray(data) ? [] : {};
+      if (Array.isArray(data)) {
+        data.forEach((item, index) => (content[index] = copy(item)));
+      } else {
+        for (key in data) content[key] = copy(data[key]);
+      }
     }
+    return content;
+  }
 
-    var obj = {
-        a: 1,
-        b: {
-            a: 2,
-            b: 3
-        }
+  var obj = {
+    a: 1,
+    b: {
+      a: 2,
+      b: 3,
+    },
+  };
+  var newData = copy(obj);
+  newData.b.b = 5;
+  console.log(newData, obj);
+
+  function deepClone(source) {
+    if (!source && typeof source !== "object") {
+      throw new Error("error arguments", "deepClone");
     }
-    var newData = copy(obj)
-    newData.b.b = 5
-    console.log(newData, obj);
+    const targetObj = source.constructor === Array ? [] : {};
+    Object.keys(source).forEach((keys) => {
+      if (source[keys] && typeof source[keys] === "object") {
+        targetObj[keys] = deepClone(source[keys]);
+      } else {
+        targetObj[keys] = source[keys];
+      }
+    });
+    return targetObj;
+  }
 
-    function deepClone(source) {
-        if (!source && typeof source !== 'object') {
-            throw new Error('error arguments', 'deepClone')
-        }
-        const targetObj = source.constructor === Array ? [] : {}
-        Object.keys(source).forEach(keys => {
-            if (source[keys] && typeof source[keys] === 'object') {
-                targetObj[keys] = deepClone(source[keys])
-            } else {
-                targetObj[keys] = source[keys]
-            }
-        })
-        return targetObj
+  const deepCopy = (params) => {
+    const type = Object.prototype.toString.call(params).slice(8, -1);
+    switch (type) {
+      case "Object":
+        return Object.keys(params).reduce(
+          (obj, key) => ({ ...obj, [key]: deepCopy(params[key]) }),
+          {}
+        );
+      case "Array":
+        return Object.keys(params).map((i) => deepCopy(params[i]));
+      default:
+        return params;
     }
-
-    const deepCopy = (params) => {
-        const type = Object.prototype.toString.call(params).slice(8, -1);
-        switch (type) {
-            case 'Object':
-                return Object.keys(params).reduce((obj, key) => ({ ...obj, [key]: deepCopy(params[key]) }), {});
-            case 'Array':
-                return Object.keys(params).map((i) => deepCopy(params[i]));
-            default:
-                return params;
-        }
-    };
-    export default deepCopy;
-
+  };
+  export default deepCopy;
 </script>
