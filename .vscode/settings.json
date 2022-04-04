@@ -1,0 +1,21 @@
+{
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "html",
+    "vue"
+  ],
+  "stylelint.validate": [
+    "javascript",
+    "javascriptreact",
+    "html",
+    "vue",
+    "scss",
+    "css"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
+  "fileheader.customMade": null
+}
