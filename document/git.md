@@ -16,3 +16,25 @@
 |-x|在提交信息的末尾追加一行``(cherry picked from commit ...)``，方便以后查到这个提交是如何产生的|-|
 |-s|在提交信息的末尾追加一行操作者的签名，表示是谁进行了这个操作。|--signoff|
 
+## git stash
+将本地内容移到缓存区 
+
+## 使用场景
+在A分支工作时，突然来了个紧急需求，需要切到B分支作业。但并不想提交A的代码该如何处理呢？
+可以把代码暂时提到缓存区，切换到B分支进行编写，完成需求提交代码后，切回A分支读取缓存即可
+### Usage
+```shell
+git stash   // 缓存
+git stash save 'message'  // 推荐使用这个 可以根据存取的message识别缓存
+git stash list  // 缓存列表
+git stash pop   // 读取缓存的最后一个并从list中删除该缓存
+git stash apply stash@{n} // 读取指定缓存 不会自动删除 stash@{n} 为list中 你所要读取的缓存的序号
+git stash drop  stash@{n} // 手动删除指定缓存
+// 查看缓存的时间
+git stash list --date=relative
+git stash list --date=short
+git stash list --date=local
+```
+
+
+## git rebase -i --autosquash + git commit --fixup [hash]
