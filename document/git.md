@@ -79,3 +79,14 @@ git cherry-pick命令的常用配置项如下。
 （5）-m parent-number，--mainline parent-number
 
 如果原始提交是一个合并节点，来自于两个分支的合并，那么 Cherry pick 默认将失败，因为它不知道应该采用哪个分支的代码变动。
+
+## 查询代码提交量
+### 指定人
+```bash
+git log --author="maqiqian" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }' - 
+```
+
+### 全部成员
+```bash
+git log --format='%aN' | sort -u | while read name; do echo -en "$name\t"; git log --author="$name" --pretty=tformat: --numstat | grep "\(.html\|.vue\|.ts\|.tsx\|.css\|.js\|.md\|.scss\|.less\)$" | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }' -; done
+```
