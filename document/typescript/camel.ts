@@ -20,8 +20,8 @@ type B = {
   };
 };
 
-type Camel<T> = T extends any ? {
-  [K in keyof T as CamelCase<K & string>]: T[K] extends Record<string, string>
+type Camel<T> = T extends unknown ? {
+  [K in keyof T as CamelCase<K & string>]: T[K] extends Record<string, unknown>
   ? Camel<T[K]>
   : T[K]
 } : never
