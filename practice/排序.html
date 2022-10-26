@@ -17,7 +17,7 @@
    * 以达到整个序列有序。
    */
   // const a = [1, 2, 3, 5, 1]
-  
+
   const sort = (a, s = 0, e = a.length - 1) => {
     if (s >= e) return;
     let l = s,
@@ -38,8 +38,8 @@
     if (l === r) return;
     const m = (l + r) >>> 1,
       t = [];
-    sort(a, l, m);
-    sort(a, m + 1, r);
+    sort3(a, l, m);
+    sort3(a, m + 1, r);
     let p1 = l,
       p2 = m + 1,
       i = 0;

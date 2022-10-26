@@ -47,4 +47,43 @@
         : (subType.__proto__ = superType);
     }
   }
+
+  // JS面向对象的静态属性的继承
+
+  class Car {
+    static price = 4;
+  }
+
+  class BMW extends Car {
+    // 这里什么也不做
+  }
+
+  console.log(BMW.price);
+
+  function Car(color) {
+    this.color = color;
+  }
+  Car.myName = 'Renekton';
+  Car.prototype.x = function() {
+    console.log('父类方法');
+  };
+
+  function BMW(color) {
+    // 继承父类属性
+    Car.call(this, color);
+  }
+
+  // 修正constructor的指向
+  BMW.prototype = Object.create(Car.prototype, {
+    constructor: {
+      value: BMW,
+      writeable: false,
+    }
+  });
+
+  // 继承静态属性
+  for(const [key,value] of Object.entries(Car)) {
+    BMW[key] = value;
+  }
+
 </script>
