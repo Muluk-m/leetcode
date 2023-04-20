@@ -1,14 +1,18 @@
 # Git操作
+
 ## git cherry-pick
+
 对于多分支的代码库，将代码从一个分支转移到另一个分支是常见需求。
 
 这时分两种情况。一种情况是，你需要另一个分支的所有代码变动，那么就采用合并（git merge）。另一种情况是，你只需要部分代码变动（某几个提交），这时可以采用 Cherry pick。
 [阮一峰教程](http://www.ruanyifeng.com/blog/2020/04/git-cherry-pick.html)
 
 ### 基本用法
+
 ```bash git cherry-pick <commitHash>```
 
 ### 配置项
+
 |配置|作用|简写|
 |:--|:--|:--|
 |-e|打开外部编辑器，编辑提交信息|--edit|
@@ -17,12 +21,16 @@
 |-s|在提交信息的末尾追加一行操作者的签名，表示是谁进行了这个操作。|--signoff|
 
 ## git stash
-将本地内容移到缓存区 
+
+将本地内容移到缓存区
 
 ## 使用场景
+
 在A分支工作时，突然来了个紧急需求，需要切到B分支作业。但并不想提交A的代码该如何处理呢？
 可以把代码暂时提到缓存区，切换到B分支进行编写，完成需求提交代码后，切回A分支读取缓存即可
+
 ### Usage
+
 ```shell
 git stash   # 缓存
 git stash save 'message'  # 推荐使用这个 可以根据存取的message识别缓存
@@ -36,7 +44,6 @@ git stash list --date=short
 git stash list --date=local
 ```
 
-
 ## git rebase -i --autosquash + git commit --fixup [hash]
 
 ## git log
@@ -48,16 +55,21 @@ git log --simplify-merges # --simplify-merges 可以增强 --full-history 的能
 
 git log --stat --full-history --simplify-merges -- <path> # 查看文件变更记录
 ```
+
 ## git cherry-pick
+
 需要其他分支部分代码变动（某几个提交），采用 Cherry pick
 [git cherry-pick 教程](https://www.ruanyifeng.com/blog/2020/04/git-cherry-pick.html)
 
 ### Usage
+
 ```shell
 git cherry-pick <commitHash> # 将指定的提交（commit）应用于其他分支
 git cherry-pick <HashA> <HashB> # 转移多个提交
 ```
+
 ### 配置项
+
 git cherry-pick命令的常用配置项如下。
 
 （1）-e，--edit
@@ -81,12 +93,15 @@ git cherry-pick命令的常用配置项如下。
 如果原始提交是一个合并节点，来自于两个分支的合并，那么 Cherry pick 默认将失败，因为它不知道应该采用哪个分支的代码变动。
 
 ## 查询代码提交量
+
 ### 指定人
+
 ```bash
 git log --author="maqiqian" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }' - 
 ```
 
 ### 全部成员
+
 ```bash
 git log --format='%aN' | sort -u | while read name; do echo -en "$name\t"; git log --author="$name" --pretty=tformat: --numstat | grep "\(.html\|.vue\|.ts\|.tsx\|.css\|.js\|.md\|.scss\|.less\)$" | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }' -; done
 ```
