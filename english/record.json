@@ -1,0 +1,110 @@
+{
+  "meaning": {
+    "index": 0,
+    "meaning": "n. 意思，意义，含义；真正重要性，价值；原因",
+    "phonogram": "['mi:niŋ]",
+    "example": [
+      {
+        "content": "What's the meaning of this word? ",
+        "meaning": "这个单词的含义是什么"
+      },
+      {
+        "content": "The word has many shades of meaning",
+        "meaning": "这个单词有多重含义"
+      }
+    ]
+  },
+  "shades": {
+    "index": 1,
+    "meaning": "墨镜、制造阴影",
+    "phonogram": "[ʃeɪdz]",
+    "example": [
+      {
+        "content": "The walls were painted in two shades of green.",
+        "meaning": "这些墙壁被涂成了两种色调不同的绿色。"
+      }
+    ]
+  },
+  "learn": {
+    "index": 2,
+    "meaning": "v. 学习，学会；得知，获悉；背熟，熟记；",
+    "phonogram": "[lə:n]",
+    "example": [
+      {
+        "content": "The kids were quick to learn.",
+        "meaning": "那些孩子学东西很快。"
+      },
+      {
+        "content": "Where did you learn to cook?.",
+        "meaning": "你在哪里学的烹调？"
+      }
+    ]
+  },
+  "bike": {
+    "index": 3,
+    "meaning": "n. 自行车，脚踏车，单车；摩托车",
+    "phonogram": "[baɪk]",
+    "example": [
+      {
+        "content": "Could you mend my bike for me?",
+        "meaning": "你能帮我修一下自行车吗？"
+      }
+    ]
+  },
+  "muscle": {
+    "index": 4,
+    "meaning": "n. 肌肉；体力，力气；权力，影响力；v. 用力搬动；挤；",
+    "phonogram": "[ˈmʌs(ə)l]",
+    "example": [
+      {
+        "content": "As we age we lose muscle tissue.",
+        "meaning": "随着年纪的增大，我们会失去一些肌肉组织"
+      }
+    ]
+  },
+  "own": {
+    "index": 5,
+    "meaning": "v. 有，拥有；adj. 自己的，属于自己的；pronoun. 自己的，属于自己的；",
+    "phonogram": "[əʊn]",
+    "example": [
+      {
+        "content": "She makes all her own clothes. ",
+        "meaning": "她的衣服都是自己做的"
+      },
+      {
+        "content": "I want to have my own business.",
+        "meaning": "我想拥有自己的事业。"
+      }
+    ]
+  },
+  "in": {
+    "index": 6,
+    "meaning": "prep. 在……内；进……里；在……期间；在……以后；穿着；adv. 进入；在里头；到达；当选；adj. 在里面的；时髦的；（用球）界内的n. 执政者；门路",
+    "phonogram": "[ɪn]",
+    "example": [
+      {
+        "content": "In a severe gale the ship split in two",
+        "meaning": "在一次强劲的大风中那艘船断成了两半。"
+      },
+      {
+        "content": "We'll reassemble in the parking lot in thirty minutes.",
+        "meaning": "30分钟后，我们将在停车场再一次集合。"
+      }
+    ]
+  },
+  "how": {
+    "index": 7,
+    "meaning": "adv. 怎样，如何；（指状况、情况）好否，怎么样；（用于询问数量、程度）多少，怎么；（强调程度）多么，何等；（用于引出想要谈及的事实）n. 方式，方法",
+    "phonogram": "[haʊ]",
+    "example": [
+      {
+        "content": "How many people were there?",
+        "meaning": "有多少人？"
+      },
+      {
+        "content": "How did they play?",
+        "meaning": "他们的比赛怎样"
+      }
+    ]
+  }
+}
