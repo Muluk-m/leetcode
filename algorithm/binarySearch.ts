@@ -22,3 +22,14 @@ const binarySearch1 = (arr, t, l = 0, r = arr.length) => {
 };
 
 console.log(binarySearch1(arr, 44));
+
+
+const binarySearch2 = (arr = [], target, start = 0, end = arr.length) => {
+
+  while (start < end) {
+    const middle = (end + start) >>> 1
+    if (arr[middle] === target) return middle
+    if (arr[middle] > target) end = middle - 1
+    if (arr[middle] < target) start = middle + 1
+  }
+}

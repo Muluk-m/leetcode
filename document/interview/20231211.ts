@@ -1,6 +1,6 @@
 // Promise Scheduler
 class Scheduler {
-  queue: { resolve: (value?: unknown) => void, task: () => void }[] = []
+  queue: ((...arg: any[]) => any)[] = []
 
   activeCount = 0
 
@@ -8,25 +8,21 @@ class Scheduler {
 
   add(task) {
     return new Promise((resolve) => {
-      this.queue.push({
-        task,
-        resolve,
-      })
+      this.queue.push(this.run.bind(this, task, resolve))
       this.next()
     })
-
   }
 
-  async next() {
+  async run(task, resolve) {
+    this.activeCount++
+    resolve(await task())
+    this.activeCount--
+    this.next()
+  }
+
+  next() {
     if (this.activeCount < this.concurrency && this.queue.length) {
-      const { resolve, task } = this.queue.shift()!
-
-      this.activeCount++
-      await task()
-      resolve()
-      this.activeCount--
-
-      this.next()
+      this.queue.shift()?.()
     }
   }
 }
